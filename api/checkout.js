@@ -32,6 +32,7 @@
 
 // module.exports = createCheckoutSession;
 // This is your test secret API key.
+
 const stripe = require('stripe')(process.env.SECRET_KEY);
 const checkout = require('express').Router();
 
