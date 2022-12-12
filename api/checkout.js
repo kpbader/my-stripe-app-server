@@ -35,7 +35,7 @@
 
 const stripe = require('stripe')(process.env.SECRET_KEY);
 const checkout = require('express').Router();
-
+const domainUrl = process.env.WEB_APP_URL;
 
 checkout.post('/create-checkout-session', async (req, res) => {
     console.log(req.body.line_items)
@@ -45,8 +45,8 @@ checkout.post('/create-checkout-session', async (req, res) => {
     payment_method_types: ['card'],
     line_items,
     mode: 'payment',
-    success_url: `${process.env.WEB_APP_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
-    cancel_url: `${process.env.WEB_APP_URL}/canceled`,
+    success_url: `${domainUrl}/success?session_id={CHECKOUT_SESSION_ID}`,
+    cancel_url: `${domainUrl}/canceled`,
     // automatic_tax: {enabled: true},
   });
   res.json({url:session.url, sessionId: session.id} );
