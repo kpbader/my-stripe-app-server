@@ -11,7 +11,7 @@ const getCards = require('./api/getPaymentMethod');
 const updatePaymentIntent = require('./api/updatePaymentIntent');
 
 const app = express();
-const PORT = process.env.WEB_APP_URL || 8080
+const PORT = process.env.PORT || 8080
 
 app.use(express.json({
     verify: (req, res, buffer) => req['rawBody'] = buffer,

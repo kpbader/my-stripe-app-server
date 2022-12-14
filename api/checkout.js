@@ -35,7 +35,7 @@
 
 const stripe = require('stripe')(process.env.SECRET_KEY);
 const checkout = require('express').Router();
-const domainUrl = process.env.WEB_APP_URL;
+const domainUrl = 'https://my-stripe-app-1.herokuapp.com';
 
 checkout.post('/create-checkout-session', async (req, res) => {
     console.log(req.body.line_items)
